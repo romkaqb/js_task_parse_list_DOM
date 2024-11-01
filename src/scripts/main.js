@@ -24,3 +24,14 @@ function sortList(list) {
 const myList = document.querySelector('ul');
 
 sortList(myList);
+
+function getEmployees(list) {
+  const employees = Array.from(list.children).map((item) => ({
+    name: item.textContent.trim(),
+    salary: parseSalary(item.getAttribute('data-salary')),
+  }));
+
+  return employees;
+}
+
+getEmployees(myList);
